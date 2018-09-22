@@ -1,224 +1,394 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>6 Sombreros</title>
-	<meta charset="utf-8">
-	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<!DOCTYPE HTML>
+<html lang="en-US">
+    <head>
+        <title>Seis Sombreros</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="description" content="Template by Colorlib" />
+        <meta name="keywords" content="HTML, CSS, JavaScript, PHP" />
+        <meta name="author" content="DryThemes" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-	<style>
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
-		.container{
-			float: left;
-			width: 210px;
-		    height: auto;
-		}
+        <link rel="shortcut icon" href="images/favicon.png" />
+        <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700%7CPT+Serif:400,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css"  href='css/clear.css' />
+        <link rel="stylesheet" type="text/css"  href='css/common.css' />
+        <link rel="stylesheet" type="text/css"  href='css/font-awesome.min.css' />
+        <link rel="stylesheet" type="text/css"  href='css/carouFredSel.css' />
+        <link rel="stylesheet" type="text/css"  href='css/prettyPhoto.css' />
+        <link rel="stylesheet" type="text/css"  href='css/sm-clean.css' />
+        <link rel="stylesheet" type="text/css"  href='style.css' />
 
-		.container2{
-			width: 210px;
-		    height: auto;
-		    align-items: center;
-		    display: flex;
-		    justify-content: center;
-		}
-
-		.container-sup{
-			width: auto;
-		    height: auto;
-		    align-items: center;
-		    display: flex;
-		    justify-content: center;
-		}
-
-		.sombrero {
-			float: left;
-		    width: 200px;
-		    height: auto;
-		    border-radius: 5%;
-		    background: #d1d1d1;
-		    margin-top: 5px;
-		    margin-left: 5px;
-		}
-
-		.add{
-			float: left;
-			margin-top: 10px;
-			text-align: center;
-		}
-
-		.espacio{
-			float: left;
-			width: 10px;
-		    height: 100px;
-		}
-
-		.sombrero p, .sombrero h3, .sombrero h4 {
-			text-align: center;
-			vertical-align: middle;
-			line-height: 10px;
-		}
-
-		.oscuro{
-			color: #e6e6e6;
-		}
-
-	</style>
-
-</head>
-<body>
-
-	<div class="container-sup">
-
-		<!--SOMBRERO BLANCO-->
-		<div class="container">
-			<div class="sombrero" style="background: #e6e6e6;" id="sombrero1">
-				<h3>Perspectiva Objetiva</h3>
-				<h4>Información y Hechos</h4>
-				<hr><br>
-			</div>
-			<div class="container2">
-				<div class="add">
-					<form>
-						<input type="text" name="sombrero1" id="text1">
-						<br><br>
-						<input type="button" value="Agregar" onclick="append1()" />
-					</form>
-				</div>
-
-			</div>
-		</div>
-
-		<div class="espacio"></div>
-
-		<!--SOMBRERO ROJO-->
-		<div class="container">
-			<div class="sombrero oscuro" style="background: #b30000;" id="sombrero2">
-				<h3>Intuición</h3>
-				<h4>Emoción y Sentimientos</h4>
-				<hr style="border-color: #620000;"><br>
-			</div>
-			<div class="container2">
-				<div class="add">
-					<form>
-						<input type="text" name="sombrero2" id="text2">
-						<br><br>
-						<input type="button" value="Agregar" onclick="append2()" />
-					</form>
-				</div>
-			</div>
-		</div>
-
-		<div class="espacio"></div>
-
-		<!--SOMBRERO NEGRO-->
-		<div class="container">
-			<div class="sombrero oscuro" style="background: #262626;" id="sombrero3">
-				<h3>Voz del Juicio</h3>
-				<h4>Análisis Crítico</h4>
-				<hr style="border-color: #000000"><br>
-			</div>
-			<div class="container2">
-				<div class="add">
-					<form>
-						<input type="text" name="sombrero3" id="text3">
-						<br><br>
-						<input type="button" value="Agregar" onclick="append3()" />
-					</form>
-				</div>
-			</div>
-		</div>
-
-		<div class="espacio"></div>
-
-		<!--SOMBRERO AMARILLO-->
-		<div class="container">
-			<div class="sombrero" style="background: #ffa31a;" id="sombrero4">
-				<h3>Lógica Positiva</h3>
-				<h4>Beneficios y Ventajas</h4>
-				<hr style="border-color: #a46200"><br>
-			</div>
-			<div class="container2">
-				<div class="add">
-					<form>
-						<input type="text" name="sombrero4" id="text4">
-						<br><br>
-						<input type="button" value="Agregar" onclick="append4()" />
-					</form>
-				</div>
-			</div>
-		</div>
-
-		<div class="espacio"></div>
-
-		<!--SOMBRERO VERDE-->
-		<div class="container">
-			<div class="sombrero" style="background: #3e8e3e;" id="sombrero5">
-				<h3>Creatividad</h3>
-				<h4>Alternativas y propuestas</h4>
-				<hr style="border-color: #255425"><br>
-			</div>
-			<div class="container2">
-				<div class="add">
-					<form>
-						<input type="text" name="sombrero5" id="text5">
-						<br><br>
-						<input type="button" value="Agregar" onclick="append5()" />
-					</form>
-				</div>
-			</div>
-		</div>
-
-		<div class="espacio"></div>
-
-		<!--SOMBRERO AZUL-->
-		<div class="container">
-			<div class="sombrero" style="background: #669999;" id="sombrero6">
-				<h3>Visión Global</h3>
-				<h4>Director de Orquesta</h4>
-				<hr style="border-color: #426464"><br>
-			</div>
-			<div class="container2">
-				<div class="add">
-					<form>
-						<input type="text" name="sombrero6" id="text6">
-						<br><br>
-						<input type="button" value="Agregar" onclick="append6()" />
-					</form>
-				</div>
-			</div>
-		</div>
-
-
-	</div>
+        <!--[if lt IE 9]>
+                <script src="js/html5shiv.js"></script>
+                <script src="js/respond.min.js"></script>
+        <![endif]-->
 
 
 
+        <!--Estilos para las tarjetas de los sombreros-->
+        <style>
+            .container{
+                float: left;
+                width: 210px;
+                height: auto;
+            }
+
+            .container2{
+                width: 210px;
+                height: auto;
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+
+            .container-sup{
+                width: auto;
+                height: auto;
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+
+            .sombrero {
+                float: left;
+                width: 200px;
+                height: auto;
+                border-radius: 5%;
+                background: #d1d1d1;
+                margin-top: 5px;
+                margin-left: 5px;
+            }
+
+            .add{
+                float: left;
+                margin-top: 10px;
+                text-align: center;
+            }
+
+            .espacio{
+                float: left;
+                width: 10px;
+                height: 100px;
+            }
+
+            .sombrero p, .sombrero h3, .sombrero h4 {
+                text-align: center;
+                vertical-align: middle;
+                line-height: 2;
+            }
+
+            .dark p{
+                color: #e6e6e6;
+            }
+        </style>
 
 
-	<script>
-		function append1() {
-			$( "#sombrero1" ).append('<p>' + $('#text1').val() + '</p>');
-		}
+    </head>
+    <body class="post single-post">
 
-		function append2() {
-			$( "#sombrero2" ).append('<p>' + $('#text2').val() + '</p>');
-		}
+        <table class="doc-loader">
+            <tbody>
+                <tr>
+                    <td>
+                        <img src="images/ajax-document-loader.gif" alt="Loading...">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
 
-		function append3() {
-			$( "#sombrero3" ).append('<p>' + $('#text3').val() + '</p>');
-		}
 
-		function append4() {
-			$( "#sombrero4" ).append('<p>' + $('#text4').val() + '</p>');
-		}
+        <nav id="header-main-menu">
+            <ul class="main-menu sm sm-clean">
+                <li>
+                    <a href="index.html">Inicio</a>
+                </li><br>
+                <li>
+                    <a href="ishikawa.html">Ishikawa</a>
+                </li><br>
+                <li>
+                    <a href="pareto.html">Pareto</a>
+                </li><br>
+                <li>
+                    <a href="sombreros.html">Seis Sombreros</a>
+                </li><br><hr>
+                <li>
+                    <a href="about.html">Acerca de</a>
+                </li>
+            </ul>
+        </nav>
 
-		function append5() {
-			$( "#sombrero5" ).append('<p>' + $('#text5').val() + '</p>');
-		}
+        <div id="content" class="site-content center-relative">
 
-		function append6() {
-			$( "#sombrero6" ).append('<p>' + $('#text6').val() + '</p>');
-		}
-	</script>
-</body>
+            <div class="header-holder">
+                <div class="toggle-holder relative right">
+                    <div id="toggle">
+                        <div class="first-menu-line"></div>
+                        <div class="second-menu-line"></div>
+                        <div class="third-menu-line"></div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="background-image-holder">
+                <img src="demo-images/one_drop_home_image02.jpg" alt="">
+            </div>
 
+            <div class="single-post-wrapper content-1170 center-relative">
+                <article>
+                    <h1 class="entry-title">Seis Sombreros</h1>
+                    <div class="post-info center-text">
+                        <div class="post-date">Septiembre 24, 2018</div>
+                        <div class="cat-links">
+                            <ul>
+                                <li>
+                                    <a href="#">Tópico III</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="entry-content">
+                        <div class="content-wrap">
+                            <p>En este espacio podrás poner en práctica la técnica de los seis sombreros para pensar. Recuerda que cada color del sombrero representa una forma distinta de pensar o abordar un problema.</p><br>
+
+                            <p><strong style="color: #e6e6e6; text-shadow: 1px 1px 1px #000;">Blanco</strong> - Perspectiva objetiva (Información, hechos y números)</p>
+                            <p><strong style="color: #b30000">Rojo</strong> - Intuición (Emociones y Sentimientos)</p>
+                            <p><strong style="color: #262626">Negro</strong> - Voz del Juicio (Análisis crítico-pesimista)</p>
+                            <p><strong style="color: #ffa31a">Amarillo</strong> - Lógica Positiva (Beneficios y Ventajas)</p>
+                            <p><strong style="color: #3e8e3e">Verde</strong> - Creatividad (Alternativas y Propuestas)</p>
+                            <p><strong style="color: #669999">Azul</strong> - Visión Global (Director de Orquesta)</p>
+                            
+                            <br><br>
+
+
+                            <!--Funcionalidad de los SOMBREROS-->
+                            <div class="container-sup">
+
+                                <!--SOMBRERO BLANCO-->
+                                <div class="container">
+                                    <p style="text-align: center;">
+                                        <i class="fa fa-graduation-cap" style="font-size:48px;color:#e6e6e6;"></i>
+                                    </p>
+                                    <div class="sombrero" style="background: #e6e6e6;" id="sombrero1">
+                                        <br><p><strong>Persp. Objetiva</strong></p>
+                                        <hr>
+                                    </div>
+                                    <div class="container2">
+                                        <div class="add">
+                                            <form>
+                                                <input type="text" name="sombrero1" id="text1">
+                                                <br><br>
+                                                <input type="button" value="Agregar" onclick="append1()" />
+                                            </form>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+
+                                <div class="espacio"></div>
+
+                                <!--SOMBRERO ROJO-->
+                                <div class="container dark">
+                                    <p style="text-align: center;">
+                                        <i class="fa fa-graduation-cap" style="font-size:48px;color:#b30000;"></i>
+                                    </p>
+                                    <div class="sombrero" style="background: #b30000;" id="sombrero2">
+                                        <br><p><strong>Intuición</strong></p>
+                                        <hr style="border-color: #620000">
+                                    </div>
+                                    <div class="container2">
+                                        <div class="add">
+                                            <form>
+                                                <input type="text" name="sombrero2" id="text2">
+                                                <br><br>
+                                                <input type="button" value="Agregar" onclick="append2()" />
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="espacio"></div>
+
+                                <!--SOMBRERO NEGRO-->
+                                <div class="container dark">
+                                    <p style="text-align: center;">
+                                        <i class="fa fa-graduation-cap" style="font-size:48px;color:#262626;"></i>
+                                    </p>
+                                    <div class="sombrero" style="background: #262626;" id="sombrero3">
+                                        <br><p><strong>Voz del Juicio</strong></p>
+                                        <hr style="border-color: #000000">
+                                    </div>
+                                    <div class="container2">
+                                        <div class="add">
+                                            <form>
+                                                <input type="text" name="sombrero3" id="text3">
+                                                <br><br>
+                                                <input type="button" value="Agregar" onclick="append3()" />
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="espacio"></div>
+
+                                <!--SOMBRERO AMARILLO-->
+                                <div class="container">
+                                    <p style="text-align: center;">
+                                        <i class="fa fa-graduation-cap" style="font-size:48px;color:#ffa31a;"></i>
+                                    </p>
+                                    <div class="sombrero" style="background: #ffa31a;" id="sombrero4">
+                                        <br><p><strong>Lógica Positiva</strong></p>
+                                        <hr style="border-color: #a46200">
+                                    </div>
+                                    <div class="container2">
+                                        <div class="add">
+                                            <form>
+                                                <input type="text" name="sombrero4" id="text4">
+                                                <br><br>
+                                                <input type="button" value="Agregar" onclick="append4()" />
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="espacio"></div>
+
+                                <!--SOMBRERO VERDE-->
+                                <div class="container">
+                                    <p style="text-align: center;">
+                                        <i class="fa fa-graduation-cap" style="font-size:48px;color:#3e8e3e;"></i>
+                                    </p>
+                                    <div class="sombrero" style="background: #3e8e3e;" id="sombrero5">
+                                        <br><p><strong>Creatividad</strong></p>
+                                        <hr style="border-color: #255425">
+                                    </div>
+                                    <div class="container2">
+                                        <div class="add">
+                                            <form>
+                                                <input type="text" name="sombrero5" id="text5">
+                                                <br><br>
+                                                <input type="button" value="Agregar" onclick="append5()" />
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="espacio"></div>
+
+                                <!--SOMBRERO AZUL-->
+                                <div class="container">
+                                    <p style="text-align: center;">
+                                        <i class="fa fa-graduation-cap" style="font-size:48px;color:#669999;"></i>
+                                    </p>
+                                    <div class="sombrero" style="background: #669999;" id="sombrero6">
+                                        <br><p><strong>Visión Global</strong></p>
+                                        <hr style="border-color: #426464">
+                                    </div>
+                                    <div class="container2">
+                                        <div class="add">
+                                            <form>
+                                                <input type="text" name="sombrero6" id="text6">
+                                                <br><br>
+                                                <input type="button" value="Agregar" onclick="append6()" />
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+
+                            
+
+
+                            <script>
+                                function append1() {
+                                    $( "#sombrero1" ).append('<p>' + $('#text1').val() + '</p><hr>');
+                                }
+
+                                function append2() {
+                                    $( "#sombrero2" ).append('<p>' + $('#text2').val() + '</p><hr>');
+                                }
+
+                                function append3() {
+                                    $( "#sombrero3" ).append('<p>' + $('#text3').val() + '</p><hr>');
+                                }
+
+                                function append4() {
+                                    $( "#sombrero4" ).append('<p>' + $('#text4').val() + '</p><hr>');
+                                }
+
+                                function append5() {
+                                    $( "#sombrero5" ).append('<p>' + $('#text5').val() + '</p><hr>');
+                                }
+
+                                function append6() {
+                                    $( "#sombrero6" ).append('<p>' + $('#text6').val() + '</p><hr>');
+                                }
+                            </script>
+
+
+
+
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </article>
+            </div>
+        </div>
+
+        <footer class="footer" style="background: #62626d; margin-top: 0px;">
+            <div class="content-1170 center-relative">
+                <ul>
+                    <br><br>
+                    <img src="images/default_droppler_logo.png" alt="logo" style="width: 100px; height: 100px; display: block; margin-left: auto; margin-right: auto;"><br>
+
+                    <li class="left-footer-content">
+                        <h4 style="text-align: center;">"Kuali Tlakah" es el náhuatl para "gente buena".</h4><br><br>        
+                    </li>
+
+                    <li class="right-footer-contnet">
+                        
+                        <p style="text-align: center; border-left: 2px solid #9999cc">
+                            Creemos firmemente en nuestras raices mexicanas. 
+                            <br>
+                            Es por ello que decidimos rendir tributo a esta bella lengua indígena, que nos ha dado un gran sentido de identidad a través de los años.
+                        </p><br><br>
+                    </li>
+
+                    <br><br><br>
+                    <p style="text-align: center;"><strong>Universidad Autónoma de Querétaro</strong></p>
+                    <p style="text-align: center;">Facultad de Informática</p>
+                    <br>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    <p style="text-align: center;">&copy;2018 All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->   
+                </ul>
+                <div class="clear"></div>
+            </div>
+        </footer>
+
+        <div class="fixed scroll-top">
+            <img src="images/back_to_top.png" alt="Go Top">
+        </div>
+
+        <!--Load JavaScript-->
+        <script src="js/jquery.js"></script>
+        <script src='js/jquery.fitvids.js'></script>
+        <script src='js/jquery.smartmenus.min.js'></script>
+        <script src='js/isotope.pkgd.js'></script>
+        <script src='js/imagesloaded.pkgd.js'></script>
+        <script src='js/isotope.pkgd.js'></script>
+        <script src='js/jquery.carouFredSel-6.0.0-packed.js'></script>
+        <script src='js/jquery.mousewheel.min.js'></script>
+        <script src='js/jquery.touchSwipe.min.js'></script>
+        <script src='js/jquery.easing.1.3.js'></script>
+        <script src='js/imagesloaded.pkgd.js'></script>
+        <script src='js/jquery.prettyPhoto.js'></script>
+        <script src='js/jquery.nicescroll.min.js'></script>
+        <script src='js/main.js'></script>
+    </body>
 </html>
