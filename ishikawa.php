@@ -180,13 +180,6 @@
                               esto con la finalidad de generar una representación gráfica que te permitirá visualizar las causas que explican
                               el determinado problema.</p><br>
 
-                            <!-- <p><strong style="color: #e6e6e6; text-shadow: 1px 1px 1px #000;">Blanco</strong> - Perspectiva objetiva (Información, hechos y números)</p>
-                            <p><strong style="color: #b30000">Rojo</strong> - Intuición (Emociones y Sentimientos)</p>
-                            <p><strong style="color: #262626">Negro</strong> - Voz del Juicio (Análisis crítico-pesimista)</p>
-                            <p><strong style="color: #ffa31a">Amarillo</strong> - Lógica Positiva (Beneficios y Ventajas)</p>
-                            <p><strong style="color: #3e8e3e">Verde</strong> - Creatividad (Alternativas y Propuestas)</p>
-                            <p><strong style="color: #669999">Azul</strong> - Visión Global (Director de Orquesta)</p> -->
-
                             <br><br>
 
                             <div class="container-sup">
@@ -202,10 +195,24 @@
                                     <input type="text" name="c4" value="" placeholder="Causa 4">
                                     <input type="text" name="c5" value="" placeholder="Causa 5">
                                     <input type="text" name="c6" value="" placeholder="Causa 6">
-                                    <button type="submit" name="button">Generar diagrama de Ishikawa</button>
+                                    <button onclick="enviarFormulario(event)" name="button">Generar diagrama de Ishikawa</button>
                                 </form>
                               </div>
 
+                              <script type="text/javascript">
+                                function enviarFormulario(e) {
+                                  e.preventDefault();
+                                  var problema = document.querySelector('input[name="problema"]').value;
+                                  var c1 = document.querySelector('input[name="c1"]').value;
+                                  var c2 = document.querySelector('input[name="c2"]').value;
+                                  var c3 = document.querySelector('input[name="c3"]').value;
+                                  var c4 = document.querySelector('input[name="c4"]').value;
+                                  var c5 = document.querySelector('input[name="c5"]').value;
+                                  var c6 = document.querySelector('input[name="c6"]').value;
+
+                                  window.open("pdf-ishikawa.php?problema="+problema+"&c1="+c1+"&c2="+c2+"&c3="+c3+"&c4="+c4+"&c5="+c5+"&c6="+c6, "_blank");
+                                }
+                              </script>
 
                             </div>
                         </div>
