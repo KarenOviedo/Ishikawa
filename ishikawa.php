@@ -196,6 +196,7 @@
                                     <input type="text" name="c5" value="" placeholder="Causa 5">
                                     <input type="text" name="c6" value="" placeholder="Causa 6">
                                     <button onclick="enviarFormulario(event)" name="button">Generar diagrama de Ishikawa</button>
+                                    <button onclick="enviarAPareto(event)" name="button">Generar diagrama de Pareto</button>
                                 </form>
                               </div>
 
@@ -211,6 +212,20 @@
                                   var c6 = document.querySelector('input[name="c6"]').value;
 
                                   window.open("pdf-ishikawa.php?problema="+problema+"&c1="+c1+"&c2="+c2+"&c3="+c3+"&c4="+c4+"&c5="+c5+"&c6="+c6, "_blank");
+                                }
+
+                                function enviarAPareto(e) {
+                                  e.preventDefault();
+                                  var problema = document.querySelector('input[name="problema"]').value;
+                                  var c1 = document.querySelector('input[name="c1"]').value;
+                                  var c2 = document.querySelector('input[name="c2"]').value;
+                                  var c3 = document.querySelector('input[name="c3"]').value;
+                                  var c4 = document.querySelector('input[name="c4"]').value;
+                                  var c5 = document.querySelector('input[name="c5"]').value;
+                                  var c6 = document.querySelector('input[name="c6"]').value;
+
+                                  window.open("pareto.php?problema="+problema+"&c1="+c1+"&c2="+c2+"&c3="+c3+"&c4="+c4+"&c5="+c5+"&c6="+c6, "_blank");
+
                                 }
                               </script>
 
