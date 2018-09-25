@@ -42,37 +42,45 @@
 
 		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 		<script type="text/javascript">
-			google.charts.load('current', {'packages':['corechart']});
-			google.charts.setOnLoadCallback(drawVisualization);
+				function maxNum() {
+				//alert("¡Hola! Esta es la función para verificar el máximo de puntos");
+				var vCausa1 = document.querySelector('input[name="vCausa1"]').value;
+				var vCausa2 = document.querySelector('input[name="vCausa2"]').value;
+				var vCausa3 = document.querySelector('input[name="vCausa3"]').value;
+				var vCausa4 = document.querySelector('input[name="vCausa4"]').value;
+				var vCausa5 = document.querySelector('input[name="vCausa5"]').value;
+				var vCausa6 = document.querySelector('input[name="vCausa6"]').value;
+				//alert("El valor de la causa 1 es: " + vCausa1 + ", " + vCausa2 + ", " + vCausa3 + ", " + vCausa4 + ", " + vCausa5 + ", " + vCausa6);
 
-			function drawVisualization() {
-				// Some raw data (not necessarily accurate)
-				var data = google.visualization.arrayToDataTable([
-					['Causa', 'Valor', 'Procentaje', 'Marcador'],
-					['<?php echo $c1; ?>',  165,      50,         80],
-					['<?php echo $c2; ?>',  135,      70,        80],
-					['<?php echo $c3; ?>',  157,      85,        80],
-					['<?php echo $c4; ?>',  139,      95,        80],
-					['<?php echo $c5; ?>',  136,      99,         80],
-					['<?php echo $c6; ?>',  136,      100,         80]
-				]);
+				var arrayNumbers = [vCausa1, vCausa2, vCausa3, vCausa4, vCausa5, vCausa6];
+				var totalPoints =  parseInt(vCausa1) + parseInt(vCausa2) + parseInt(vCausa3) + parseInt(vCausa4) + parseInt(vCausa5) + parseInt(vCausa6);
 
-				var options = {
-					title : 'Gráfico de Pareto sobre el problema "<?php echo $Problema; ?>"',
-					vAxis: {title: 'Cups'},
-					hAxis: {title: 'Month'},
-			//      hAxis.direction: '1',
-					seriesType: 'line',
-					series: {0: {type: 'bars'}},
-				};
+				Array.prototype.sortNumbers = function(){
+					return this.sort(
+						function(a,b){
+							return a - b
+						}
+					);
+				}
 
-				var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
-				chart.draw(data, options);
+				document.getElementById('points').innerHTML = totalPoints;
+				//alert(arrayNumbers.sortNumbers());
+				console.log(arrayNumbers.sortNumbers());
 			}
 
 
-			function maxNum() {
-				alert("¡Hola! Esta es la función para verificar el máximo de puntos");
+			function generarGrafico() {
+				/*e.preventDefault();
+				var problema = document.querySelector('input[name="problema"]').value;
+				var c1 = document.querySelector('input[name="c1"]').value;
+				var c2 = document.querySelector('input[name="c2"]').value;
+				var c3 = document.querySelector('input[name="c3"]').value;
+				var c4 = document.querySelector('input[name="c4"]').value;
+				var c5 = document.querySelector('input[name="c5"]').value;
+				var c6 = document.querySelector('input[name="c6"]').value;
+
+				window.open("pareto.php?problema="+problema+"&c1="+c1+"&c2="+c2+"&c3="+c3+"&c4="+c4+"&c5="+c5+"&c6="+c6, "_blank");*/
+				alert("Se generará un gráfico c:");
 			}
 		</script>
 
@@ -132,17 +140,7 @@
 				color: #e6e6e6;
 			}
 
-			.form-ishikawa input{
-			  width: 100%;
-			  padding: 12px 20px;
-			  margin: 8px 0;
-			  display: inline-block;
-			  border: 1px solid #ccc;
-			  border-radius: 4px;
-			  box-sizing: border-box;
-			}
-
-			.form-ishikawa button{
+			.content-wrap button{
 			  /* width: 100%; */
 			  background-color: #D3B9C5;
 			  color: black;
@@ -152,8 +150,19 @@
 			  border-radius: 4px;
 			}
 
-			.form-ishikawa button:hover{
+			.content-wrap button:hover{
 			  background-color: #D9B5F9;
+			}
+
+			input[Type="number"]{
+				width:50px;
+				background-color: #F0F2F3;
+				font-size: 15px;
+				padding: 4px;
+				padding-left: 10px;
+				border: none;
+				border-radius: 5px;
+				font-family: Montserrat;
 			}
 
 		</style>
@@ -225,39 +234,22 @@
 
 					<div class="entry-content">
 						<div class="content-wrap">
+							
+								
 							<p>El siguiente formulario te ayudará a darle valor a cada una de las causas del problema <strong><?php echo $Problema; ?></strong></p><br>
-							<br>
+							
+							<p>Tienes <strong id="points">100</strong> puntos para gastar</p><br>
 
-							Tienes <strong>Algo</strong> puntos para gastar.
-
-							<br><br>
-
-							<input type="number" name="causa1" value="" min="0" max="100" onclick="maxNum()"> <?php echo $c1; ?><br>
-							<input type="number" name="causa2" value="" min="0" max="100" onclick="maxNum()"> <?php echo $c2; ?><br>
-							<input type="number" name="causa3" value="" min="0" max="100" onclick="maxNum()"> <?php echo $c3; ?><br>
-							<input type="number" name="causa4" value="" min="0" max="100" onclick="maxNum()"> <?php echo $c4; ?><br>
-							<input type="number" name="causa5" value="" min="0" max="100" onclick="maxNum()"> <?php echo $c5; ?><br>
-							<input type="number" name="causa6" value="" min="0" max="100" onclick="maxNum()"> <?php echo $c6; ?><br>
-
-
-							<?php
-								/*echo "Tu problema es ".$Problema;
-								echo "<br>Tu primer causa es: ".$c1;
-								echo "<br>Tu segunda causa es: ".$c2;
-								echo "<br>Tu tercera causa es: ".$c3;
-								echo "<br>Tu cuarta causa es: ".$c4;
-								echo "<br>Tu quinta causa es: ".$c5;
-								echo "<br>Tu sexta causa es: ".$c6;*/
-							?>
-
-							<div class="container-sup">
-
-							  <div class="form-ishikawa">
-								<div id="chart_div" style="width: 900px; height: 500px;"></div>
-								<!-----------------------DIAGRAMA-------------------->
-							  </div>
-
-							</div>
+							<form class="" method="get">
+								<input type="number" name="vCausa1" value="50" min="0" max="100" onclick="maxNum()"> <?php echo $c1; ?><br>
+								<input type="number" name="vCausa2" value="20" min="0" max="100" onclick="maxNum()"> <?php echo $c2; ?><br>
+								<input type="number" name="vCausa3" value="15" min="0" max="100" onclick="maxNum()"> <?php echo $c3; ?><br>
+								<input type="number" name="vCausa4" value="10" min="0" max="100" onclick="maxNum()"> <?php echo $c4; ?><br>
+								<input type="number" name="vCausa5" value="4" min="0" max="100" onclick="maxNum()"> <?php echo $c5; ?><br>
+								<input type="number" name="vCausa6" value="1" min="0" max="100" onclick="maxNum()"> <?php echo $c6; ?><br>
+								<br>
+								<button onclick="generarGrafico(event)" name="button">Generar diagrama de Pareto</button>
+							</form>
 						</div>
 					</div>
 					<div class="clear"></div>
