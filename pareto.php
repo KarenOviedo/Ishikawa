@@ -53,7 +53,7 @@
 
 				var totalPoints = parseInt(vCausa1) + parseInt(vCausa2) + parseInt(vCausa3) + parseInt(vCausa4) + parseInt(vCausa5) + parseInt(vCausa6);
 				var remainingPoints = 100 - totalPoints;
-				
+
 				//evitar puntos negativos
 				if (remainingPoints < 0) {
 					remainingPoints = 0;
@@ -61,7 +61,7 @@
 
 				if(totalPoints>100){
 					alert("Has agregado demasiados puntos");
-					document.getElementById("gChart").disabled = true;					
+					document.getElementById("gChart").disabled = true;
 				} else {
 					if (totalPoints<100){
 						//alert("Puedes seguir sumando puntos");
@@ -229,6 +229,7 @@
 
 			<div class="single-post-wrapper content-1170 center-relative">
 				<article>
+					<img src="images/default_droppler_logo.png" alt="logo" style="width: 150px; height: 150px; display: block; margin-left: auto; margin-right: auto;">
 					<h1 class="entry-title">Diagrama de Pareto</h1>
 					<div class="post-info center-text">
 						<div class="post-date">Septiembre 24, 2018</div>
@@ -243,10 +244,10 @@
 
 					<div class="entry-content">
 						<div class="content-wrap">
-							
-								
+
+
 							<p>El siguiente formulario te ayudará a darle valor a cada una de las causas del problema <strong><?php echo $Problema; ?></strong></p><br>
-							
+
 							<p>Has agregado <strong id="points">0</strong> puntos, te quedan <strong id="remainingPoints">100</strong> puntos para gastar. Debes asignar todos los puntos disponibles a las diferentes causas para activar el botón.</p><br>
 
 							<form name="fValores" class="" method="get">

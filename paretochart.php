@@ -251,6 +251,7 @@
 
 			<div class="single-post-wrapper content-1170 center-relative">
 				<article>
+					<img src="images/default_droppler_logo.png" alt="logo" style="width: 150px; height: 150px; display: block; margin-left: auto; margin-right: auto;">
 					<h1 class="entry-title">Diagrama de Pareto</h1>
 					<div class="post-info center-text">
 						<div class="post-date">Septiembre 24, 2018</div>
