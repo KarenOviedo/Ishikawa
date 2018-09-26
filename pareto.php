@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="en-US">
 	<head>
-		<title>Pareto</title>
+		<title>Asignación de valores: Pareto</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta name="description" content="Template by Colorlib" />
 		<meta name="keywords" content="HTML, CSS, JavaScript, PHP" />
@@ -51,7 +51,6 @@
 				var vCausa5 = document.querySelector('input[name="vCausa5"]').value;
 				var vCausa6 = document.querySelector('input[name="vCausa6"]').value;
 
-				var arrayNumbers = [vCausa1, vCausa2, vCausa3, vCausa4, vCausa5, vCausa6];
 				var totalPoints = parseInt(vCausa1) + parseInt(vCausa2) + parseInt(vCausa3) + parseInt(vCausa4) + parseInt(vCausa5) + parseInt(vCausa6);
 				var remainingPoints = 100 - totalPoints;
 				
@@ -60,27 +59,21 @@
 					remainingPoints = 0;
 				}
 
-				//Ordenar de menor a mayor los valores de 
-				Array.prototype.sortNumbers = function(){
-					return this.sort(
-						function(a,b){
-							return a - b
-						}
-					);
-				}
-
 				if(totalPoints>100){
 					alert("Has agregado demasiados puntos");
 					document.getElementById("gChart").disabled = true;					
 				} else {
-					//alert("Puedes seguir sumando puntos");
-					document.getElementById("gChart").disabled = false;
+					if (totalPoints<100){
+						//alert("Puedes seguir sumando puntos");
+						document.getElementById("gChart").disabled = true;
+					} else {
+						document.getElementById("gChart").disabled = false;
+					}
 				}
 
 				document.getElementById('points').innerHTML = totalPoints;
 				document.getElementById('remainingPoints').innerHTML = remainingPoints;
 				//alert(arrayNumbers.sortNumbers());
-				console.log(arrayNumbers.sortNumbers());
 			}
 
 
@@ -207,10 +200,7 @@
 					<a href="index.html">Inicio</a>
 				</li><br>
 				<li>
-					<a href="ishikawa.php">Ishikawa</a>
-				</li><br>
-				<li>
-					<a href="pareto.html">Pareto</a>
+					<a href="ishikawa.php">Ishikawa & Pareto</a>
 				</li><br>
 				<li>
 					<a href="sombreros.html">Seis Sombreros</a>
@@ -257,7 +247,7 @@
 								
 							<p>El siguiente formulario te ayudará a darle valor a cada una de las causas del problema <strong><?php echo $Problema; ?></strong></p><br>
 							
-							<p>Has agregado <strong id="points">0</strong> puntos, te quedan <strong id="remainingPoints">100</strong> puntos para gastar.</p><br> 
+							<p>Has agregado <strong id="points">0</strong> puntos, te quedan <strong id="remainingPoints">100</strong> puntos para gastar. Debes asignar todos los puntos disponibles a las diferentes causas para activar el botón.</p><br>
 
 							<form name="fValores" class="" method="get">
 								<input type="number" name="vCausa1" value="0" min="0" max="100" onclick="maxNum()"> <?php echo $c1; ?><br>

@@ -52,10 +52,65 @@
 			var vCausa4 = "<?php echo $vCausa4; ?>";
 			var vCausa5 = "<?php echo $vCausa5; ?>";
 			var vCausa6 = "<?php echo $vCausa6; ?>";
+
+			//Ordenar los valores
+			var arrayNumbers = [vCausa1, vCausa2, vCausa3, vCausa4, vCausa5, vCausa6];
+			Array.prototype.sortNumbers = function(){
+				return this.sort(
+					function(a,b){
+					return a - b
+					}
+				);
+			}
+
+			console.log(arrayNumbers.sortNumbers());
 		</script>
 
 		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+		<script type="text/javascript">
+			google.charts.load('current', {'packages':['corechart']});
+			google.charts.setOnLoadCallback(drawVisualization);
 
+			//Instanciar y convertir a entero los valores ordenados del arreglo
+			var max6 = parseInt(arrayNumbers[5]);
+			var max5 = parseInt(arrayNumbers[4]);
+			var max4 = parseInt(arrayNumbers[3]);
+			var max3 = parseInt(arrayNumbers[2]);
+			var max2 = parseInt(arrayNumbers[1]);
+			var max1 = parseInt(arrayNumbers[0]);
+
+			//Frecuencia acumulada
+			var fAcu1 = max6;
+			var fAcu2 = fAcu1 + max5;
+			var fAcu3 = fAcu2 + max4;
+			var fAcu4 = fAcu3 + max3;
+			var fAcu5 = fAcu4 + max2;
+			var fAcu6 = fAcu5 + max1;
+
+			function drawVisualization() {
+			// Some raw data (not necessarily accurate)
+				var data = google.visualization.arrayToDataTable([
+				['Causa', 'Valor', 'Frecuencia acumulada', 'Procentaje'],
+				['',  max6,	fAcu1,		80],
+				['',  max5,	fAcu2,		80],
+				['',  max4,	fAcu3,		80],
+				['',  max3,	fAcu4,		80],
+				['',  max2,	fAcu5,		80],
+				['',  max1,	fAcu6,		80]
+				]);
+
+				var options = {
+					title : 'Diagrama de Pareto sobre el problema: '+ Problema,
+					vAxis: {title: 'Porcentaje'},
+					hAxis: {title: 'Causas'},
+					seriesType: 'line',
+					series: {0: {type: 'bars'}}
+				};
+
+				var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+				chart.draw(data, options);
+			}
+		</script>
 
 		<!--Estilos para las tarjetas de los sombreros-->
 		<style>
@@ -167,10 +222,7 @@
 					<a href="index.html">Inicio</a>
 				</li><br>
 				<li>
-					<a href="ishikawa.php">Ishikawa</a>
-				</li><br>
-				<li>
-					<a href="pareto.html">Pareto</a>
+					<a href="ishikawa.php">Ishikawa & Pareto</a>
 				</li><br>
 				<li>
 					<a href="sombreros.html">Seis Sombreros</a>
@@ -213,7 +265,7 @@
 
 					<div class="entry-content">
 						<div class="content-wrap">
-							Aquí aparecerá el diagrama de pareto sobre el problema <strong><?php echo $Problema; ?></strong>
+							<!--Aquí aparecerá el diagrama de pareto sobre el problema <strong><?php echo $Problema; ?></strong>
 							<br>
 
 							<br>Valor de la causa 1: <?php echo $vCausa1; ?> <?php echo $c1; ?>
@@ -221,12 +273,15 @@
 							<br>Valor de la causa 3: <?php echo $vCausa3; ?> <?php echo $c3; ?>
 							<br>Valor de la causa 4: <?php echo $vCausa4; ?> <?php echo $c4; ?>
 							<br>Valor de la causa 5: <?php echo $vCausa5; ?> <?php echo $c5; ?>
-							<br>Valor de la causa 6: <?php echo $vCausa6; ?> <?php echo $c6; ?>
-
-
+							<br>Valor de la causa 6: <?php echo $vCausa6; ?> <?php echo $c6; ?>-->
 						</div>
 					</div>
+
 					<div class="clear"></div>
+
+
+											<!--Gráfico-->
+						<div id="chart_div" style="width: 100%; height: 500px;"></div>
 				</article>
 			</div>
 		</div>

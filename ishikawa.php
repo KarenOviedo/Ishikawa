@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="en-US">
     <head>
-        <title>Ishikawa</title>
+        <title>Ishikawa & Pareto</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="description" content="Template by Colorlib" />
         <meta name="keywords" content="HTML, CSS, JavaScript, PHP" />
@@ -95,7 +95,9 @@
 
             .form-ishikawa button{
               /* width: 100%; */
-              background-color: #D3B9C5;
+              background-color: #9999CC;
+              font-size: 15px;
+              font-family: Montserrat;
               color: black;
               padding: 14px 20px;
               margin: 8px 0;
@@ -130,10 +132,7 @@
                     <a href="index.html">Inicio</a>
                 </li><br>
                 <li>
-                    <a href="ishikawa.php">Ishikawa</a>
-                </li><br>
-                <li>
-                    <a href="pareto.html">Pareto</a>
+                    <a href="ishikawa.php">Ishikawa & Pareto</a>
                 </li><br>
                 <li>
                     <a href="sombreros.html">Seis Sombreros</a>
@@ -162,7 +161,7 @@
 
             <div class="single-post-wrapper content-1170 center-relative">
                 <article>
-                    <h1 class="entry-title">Diagrama de Ishikawa</h1>
+                    <h1 class="entry-title">Diagrama de Ishikawa y diagrama de Pareto</h1>
                     <div class="post-info center-text">
                         <div class="post-date">Septiembre 24, 2018</div>
                         <div class="cat-links">
@@ -176,7 +175,7 @@
 
                     <div class="entry-content">
                         <div class="content-wrap">
-                            <p>El siguiente formulario te ayudará a crear el diagrama de Ishikawa de algún problema, debes ingresar 6 posibles causas,
+                            <p>El siguiente formulario te ayudará a crear, tanto el diagrama de <strong>Ishikawa</strong> como el de <strong>Pareto</strong>, de algún problema. Debes ingresar 6 posibles causas,
                               esto con la finalidad de generar una representación gráfica que te permitirá visualizar las causas que explican
                               el determinado problema.</p><br>
 
