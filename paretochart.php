@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="en-US">
 	<head>
-		<title>Pareto</title>
+		<title>Diagrama de Pareto</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta name="description" content="Template by Colorlib" />
 		<meta name="keywords" content="HTML, CSS, JavaScript, PHP" />
@@ -21,13 +21,20 @@
 		<link rel="stylesheet" type="text/css"  href='style.css' />
 
 		<?php
-			$Problema = $_GET["problema"];
+			$Problema = $_GET["Problema"];
 			$c1 = $_GET["c1"];
 			$c2 = $_GET["c2"];
 			$c3 = $_GET["c3"];
 			$c4 = $_GET["c4"];
 			$c5 = $_GET["c5"];
 			$c6 = $_GET["c6"];
+
+			$vCausa1 = $_GET["vCausa1"];
+			$vCausa2 = $_GET["vCausa2"];
+			$vCausa3 = $_GET["vCausa3"];
+			$vCausa4 = $_GET["vCausa4"];
+			$vCausa5 = $_GET["vCausa5"];
+			$vCausa6 = $_GET["vCausa6"];
 		?>
 
 		<script type="text/javascript">
@@ -38,64 +45,17 @@
 			var c4 = "<?php echo $c4; ?>";
 			var c5 = "<?php echo $c5; ?>";
 			var c6 = "<?php echo $c6; ?>";
+
+			var vCausa1 = "<?php echo $vCausa1; ?>";
+			var vCausa2 = "<?php echo $vCausa2; ?>";
+			var vCausa3 = "<?php echo $vCausa3; ?>";
+			var vCausa4 = "<?php echo $vCausa4; ?>";
+			var vCausa5 = "<?php echo $vCausa5; ?>";
+			var vCausa6 = "<?php echo $vCausa6; ?>";
 		</script>
 
 		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-		<script type="text/javascript">
-			function maxNum() {
-				//alert("¡Hola! Esta es la función para verificar el máximo de puntos");
-				var vCausa1 = document.querySelector('input[name="vCausa1"]').value;
-				var vCausa2 = document.querySelector('input[name="vCausa2"]').value;
-				var vCausa3 = document.querySelector('input[name="vCausa3"]').value;
-				var vCausa4 = document.querySelector('input[name="vCausa4"]').value;
-				var vCausa5 = document.querySelector('input[name="vCausa5"]').value;
-				var vCausa6 = document.querySelector('input[name="vCausa6"]').value;
 
-				var arrayNumbers = [vCausa1, vCausa2, vCausa3, vCausa4, vCausa5, vCausa6];
-				var totalPoints = parseInt(vCausa1) + parseInt(vCausa2) + parseInt(vCausa3) + parseInt(vCausa4) + parseInt(vCausa5) + parseInt(vCausa6);
-				var remainingPoints = 100 - totalPoints;
-				
-				//evitar puntos negativos
-				if (remainingPoints < 0) {
-					remainingPoints = 0;
-				}
-
-				//Ordenar de menor a mayor los valores de 
-				Array.prototype.sortNumbers = function(){
-					return this.sort(
-						function(a,b){
-							return a - b
-						}
-					);
-				}
-
-				if(totalPoints>100){
-					alert("Has agregado demasiados puntos");
-					document.getElementById("gChart").disabled = true;					
-				} else {
-					//alert("Puedes seguir sumando puntos");
-					document.getElementById("gChart").disabled = false;
-				}
-
-				document.getElementById('points').innerHTML = totalPoints;
-				document.getElementById('remainingPoints').innerHTML = remainingPoints;
-				//alert(arrayNumbers.sortNumbers());
-				console.log(arrayNumbers.sortNumbers());
-			}
-
-
-			function generarGrafico(e) {
-				e.preventDefault();
-				var vCausa1 = document.querySelector('input[name="vCausa1"]').value;
-				var vCausa2 = document.querySelector('input[name="vCausa2"]').value;
-				var vCausa3 = document.querySelector('input[name="vCausa3"]').value;
-				var vCausa4 = document.querySelector('input[name="vCausa4"]').value;
-				var vCausa5 = document.querySelector('input[name="vCausa5"]').value;
-				var vCausa6 = document.querySelector('input[name="vCausa6"]').value;
-
-				window.open("paretochart.php?vCausa1="+vCausa1+"&vCausa2="+vCausa2+"&vCausa3="+vCausa3+"&vCausa4="+vCausa4+"&vCausa5="+vCausa5+"&vCausa6="+vCausa6+"&c1="+c1+"&c2="+c2+"&c3="+c3+"&c4="+c4+"&c5="+c5+"&c6="+c6+"&Problema="+Problema, "_blank");
-			}
-		</script>
 
 		<!--Estilos para las tarjetas de los sombreros-->
 		<style>
@@ -253,22 +213,17 @@
 
 					<div class="entry-content">
 						<div class="content-wrap">
-							
-								
-							<p>El siguiente formulario te ayudará a darle valor a cada una de las causas del problema <strong><?php echo $Problema; ?></strong></p><br>
-							
-							<p>Has agregado <strong id="points">0</strong> puntos, te quedan <strong id="remainingPoints">100</strong> puntos para gastar.</p><br> 
+							Aquí aparecerá el diagrama de pareto sobre el problema <strong><?php echo $Problema; ?></strong>
+							<br>
 
-							<form name="fValores" class="" method="get">
-								<input type="number" name="vCausa1" value="0" min="0" max="100" onclick="maxNum()"> <?php echo $c1; ?><br>
-								<input type="number" name="vCausa2" value="0" min="0" max="100" onclick="maxNum()"> <?php echo $c2; ?><br>
-								<input type="number" name="vCausa3" value="0" min="0" max="100" onclick="maxNum()"> <?php echo $c3; ?><br>
-								<input type="number" name="vCausa4" value="0" min="0" max="100" onclick="maxNum()"> <?php echo $c4; ?><br>
-								<input type="number" name="vCausa5" value="0" min="0" max="100" onclick="maxNum()"> <?php echo $c5; ?><br>
-								<input type="number" name="vCausa6" value="0" min="0" max="100" onclick="maxNum()"> <?php echo $c6; ?><br>
-								<br>
-								<button onclick="generarGrafico(event)" id="gChart" name="button" disabled>Generar diagrama de Pareto</button>
-							</form>
+							<br>Valor de la causa 1: <?php echo $vCausa1; ?> <?php echo $c1; ?>
+							<br>Valor de la causa 2: <?php echo $vCausa2; ?> <?php echo $c2; ?>
+							<br>Valor de la causa 3: <?php echo $vCausa3; ?> <?php echo $c3; ?>
+							<br>Valor de la causa 4: <?php echo $vCausa4; ?> <?php echo $c4; ?>
+							<br>Valor de la causa 5: <?php echo $vCausa5; ?> <?php echo $c5; ?>
+							<br>Valor de la causa 6: <?php echo $vCausa6; ?> <?php echo $c6; ?>
+
+
 						</div>
 					</div>
 					<div class="clear"></div>
