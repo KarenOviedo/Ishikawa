@@ -42,49 +42,78 @@
 
 		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 		<script type="text/javascript">
+			var porCausa01;
+			var porCausa02;
+			var porCausa03;
+			var porCausa04;
+			var porCausa05;
+			var porCausa06;
+
 			function maxNum() {
 				//alert("¡Hola! Esta es la función para verificar el máximo de puntos");
-				var vCausa1 = document.querySelector('input[name="vCausa1"]').value;
-				var vCausa2 = document.querySelector('input[name="vCausa2"]').value;
-				var vCausa3 = document.querySelector('input[name="vCausa3"]').value;
-				var vCausa4 = document.querySelector('input[name="vCausa4"]').value;
-				var vCausa5 = document.querySelector('input[name="vCausa5"]').value;
-				var vCausa6 = document.querySelector('input[name="vCausa6"]').value;
+				var vCausa1 = parseInt(document.querySelector('input[name="vCausa1"]').value);
+				var vCausa2 = parseInt(document.querySelector('input[name="vCausa2"]').value);
+				var vCausa3 = parseInt(document.querySelector('input[name="vCausa3"]').value);
+				var vCausa4 = parseInt(document.querySelector('input[name="vCausa4"]').value);
+				var vCausa5 = parseInt(document.querySelector('input[name="vCausa5"]').value);
+				var vCausa6 = parseInt(document.querySelector('input[name="vCausa6"]').value);
 
-				var totalPoints = parseInt(vCausa1) + parseInt(vCausa2) + parseInt(vCausa3) + parseInt(vCausa4) + parseInt(vCausa5) + parseInt(vCausa6);
-				var remainingPoints = 100 - totalPoints;
+				var totalPoints = vCausa1 + vCausa2 + vCausa3 + vCausa4 + vCausa5 + vCausa6;
+				//var remainingPoints = 100 - totalPoints;
 
-				//evitar puntos negativos
+				//Calcular el procentaje de cada una de las causas
+				porCausa01 = Math.round((vCausa1 / totalPoints)*100);
+				porCausa02 = Math.round((vCausa2 / totalPoints)*100);
+				porCausa03 = Math.round((vCausa3 / totalPoints)*100);
+				porCausa04 = Math.round((vCausa4 / totalPoints)*100);
+				porCausa05 = Math.round((vCausa5 / totalPoints)*100);
+				porCausa06 = Math.round((vCausa6 / totalPoints)*100);
+
+				//Impirmir en pantalla el procentaje mientras sea mayor a O
+				if (totalPoints == 0){
+					document.getElementById("porCausa01").innerHTML = "0%";
+					document.getElementById("porCausa02").innerHTML = "0%";
+					document.getElementById("porCausa03").innerHTML = "0%";
+					document.getElementById("porCausa04").innerHTML = "0%";
+					document.getElementById("porCausa05").innerHTML = "0%";
+					document.getElementById("porCausa06").innerHTML = "0%";
+					alert("Agrega valor a las causas");
+				} else {
+					document.getElementById("porCausa01").innerHTML = porCausa01 + "%";
+					document.getElementById("porCausa02").innerHTML = porCausa02 + "%";
+					document.getElementById("porCausa03").innerHTML = porCausa03 + "%";
+					document.getElementById("porCausa04").innerHTML = porCausa04 + "%";
+					document.getElementById("porCausa05").innerHTML = porCausa05 + "%";
+					document.getElementById("porCausa06").innerHTML = porCausa06 + "%";
+					document.getElementById("gChart").disabled = false;
+				}
+				/*evitar puntos negativos
 				if (remainingPoints < 0) {
 					remainingPoints = 0;
 				}
 
-				if(totalPoints>100){
-					alert("Has agregado demasiados puntos");
+				if(totalPoints<1){
+					alert("Agrega valor a las causas");
 					document.getElementById("gChart").disabled = true;
 				} else {
-					if (totalPoints<100){
-						//alert("Puedes seguir sumando puntos");
-						document.getElementById("gChart").disabled = true;
-					} else {
-						document.getElementById("gChart").disabled = false;
-					}
+					//alert("Algo ha pasado");
+					document.getElementById("gChart").disabled = false;
 				}
 
 				document.getElementById('points').innerHTML = totalPoints;
 				document.getElementById('remainingPoints').innerHTML = remainingPoints;
-				//alert(arrayNumbers.sortNumbers());
+				//alert(arrayNumbers.sortNumbers());*/
 			}
 
 
 			function generarGrafico(e) {
 				e.preventDefault();
-				var vCausa1 = document.querySelector('input[name="vCausa1"]').value;
-				var vCausa2 = document.querySelector('input[name="vCausa2"]').value;
-				var vCausa3 = document.querySelector('input[name="vCausa3"]').value;
-				var vCausa4 = document.querySelector('input[name="vCausa4"]').value;
-				var vCausa5 = document.querySelector('input[name="vCausa5"]').value;
-				var vCausa6 = document.querySelector('input[name="vCausa6"]').value;
+				var vCausa1 = porCausa01;
+				var vCausa2 = porCausa02;
+				var vCausa3 = porCausa03;
+				var vCausa4 = porCausa04;
+				var vCausa5 = porCausa05;
+				var vCausa6 = porCausa06;
 
 				window.open("paretochart.php?vCausa1="+vCausa1+"&vCausa2="+vCausa2+"&vCausa3="+vCausa3+"&vCausa4="+vCausa4+"&vCausa5="+vCausa5+"&vCausa6="+vCausa6+"&c1="+c1+"&c2="+c2+"&c3="+c3+"&c4="+c4+"&c5="+c5+"&c6="+c6+"&Problema="+Problema, "_blank");
 			}
@@ -92,6 +121,11 @@
 
 		<!--Estilos para las tarjetas de los sombreros-->
 		<style>
+
+			td{
+				padding-right: 30px;
+			}
+
 			.container{
 				float: left;
 				width: 210px;
@@ -248,15 +282,41 @@
 
 							<p>El siguiente formulario te ayudará a darle valor a cada una de las causas del problema <strong><?php echo $Problema; ?></strong></p><br>
 
-							<p>Has agregado <strong id="points">0</strong> puntos, te quedan <strong id="remainingPoints">100</strong> puntos para gastar. Debes asignar todos los puntos disponibles a las diferentes causas para activar el botón.</p><br>
+							<!--<p>Has agregado <strong id="points">0</strong> puntos, te quedan <strong id="remainingPoints">100</strong> puntos para gastar. Debes asignar todos los puntos disponibles a las diferentes causas para activar el botón.</p><br>-->
 
 							<form name="fValores" class="" method="get">
-								<input type="number" name="vCausa1" value="0" min="0" max="100" onclick="maxNum()"> <?php echo $c1; ?><br>
-								<input type="number" name="vCausa2" value="0" min="0" max="100" onclick="maxNum()"> <?php echo $c2; ?><br>
-								<input type="number" name="vCausa3" value="0" min="0" max="100" onclick="maxNum()"> <?php echo $c3; ?><br>
-								<input type="number" name="vCausa4" value="0" min="0" max="100" onclick="maxNum()"> <?php echo $c4; ?><br>
-								<input type="number" name="vCausa5" value="0" min="0" max="100" onclick="maxNum()"> <?php echo $c5; ?><br>
-								<input type="number" name="vCausa6" value="0" min="0" max="100" onclick="maxNum()"> <?php echo $c6; ?><br>
+								<table>
+									<tr>
+										<td><input type="number" name="vCausa1" value="0" min="0" max="100" onclick="maxNum()"></td>
+										<td><?php echo $c1; ?></td>
+										<td><p id="porCausa01"></p></td>
+									</tr>
+									<tr>
+										<td><input type="number" name="vCausa2" value="0" min="0" max="100" onclick="maxNum()"></td>
+										<td><?php echo $c2; ?></td>
+										<td><p id="porCausa02"></p></td>
+									</tr>
+									<tr>
+										<td><input type="number" name="vCausa3" value="0" min="0" max="100" onclick="maxNum()"></td>
+										<td><?php echo $c3; ?></td>
+										<td><p id="porCausa03"></td>
+									</tr>
+									<tr>
+										<td><input type="number" name="vCausa4" value="0" min="0" max="100" onclick="maxNum()"></td>
+										<td><?php echo $c4; ?></td>
+										<td><p id="porCausa04"></td>
+									</tr>
+									<tr>
+										<td><input type="number" name="vCausa5" value="0" min="0" max="100" onclick="maxNum()"></td>
+										<td><?php echo $c5; ?></td>
+										<td><p id="porCausa05"></td>
+									</tr>
+									<tr>
+										<td><input type="number" name="vCausa6" value="0" min="0" max="100" onclick="maxNum()"></td>
+										<td><?php echo $c6; ?></td>
+										<td><p id="porCausa06"></td>
+									</tr>
+								</table>
 								<br>
 								<button onclick="generarGrafico(event)" id="gChart" name="button" disabled>Generar diagrama de Pareto</button>
 							</form>
