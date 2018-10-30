@@ -35,7 +35,6 @@
                 width: 210px;
                 height: auto;
             }
-
             .container2{
                 width: 210px;
                 height: auto;
@@ -43,7 +42,6 @@
                 display: flex;
                 justify-content: center;
             }
-
             .container-sup{
                 width: auto;
                 height: auto;
@@ -51,7 +49,6 @@
                 display: flex;
                 justify-content: center;
             }
-
             .sombrero {
                 float: left;
                 width: 200px;
@@ -61,29 +58,24 @@
                 margin-top: 5px;
                 margin-left: 5px;
             }
-
             .add{
                 float: left;
                 margin-top: 10px;
                 text-align: center;
             }
-
             .espacio{
                 float: left;
                 width: 10px;
                 height: 100px;
             }
-
             .sombrero p, .sombrero h3, .sombrero h4 {
                 text-align: center;
                 vertical-align: middle;
                 line-height: 2;
             }
-
             .dark p{
                 color: #e6e6e6;
             }
-
             .form-ishikawa input{
               width: 90%;
               padding: 12px 20px;
@@ -93,7 +85,6 @@
               border-radius: 4px;
               box-sizing: border-box;
             }
-
             .form-ishikawa button{
               /* width: 100%; */
               background-color: #D3B9C5;
@@ -103,7 +94,6 @@
               border: none;
               border-radius: 4px;
             }
-
             .form-ishikawa button:hover{
               background-color: #D9B5F9;
             }
@@ -349,51 +339,42 @@
                                 var cont4 = 0;
                                 var cont5 = 0;
                                 var cont6 = 0;
-
                                 function append1() {
                                     cont1 = cont1 + 1;
                                     //document.getElementById("cont1").innerHTML  = cont1;
                                     $( "#sombrero1" ).append('<p>' + $('#text1').val() + '</p><hr>');
                                 }
-
                                 function append2() {
                                     cont2 = cont2 + 1;
                                     //document.getElementById("cont2").innerHTML  = cont2;
                                     $( "#sombrero2" ).append('<p>' + $('#text2').val() + '</p><hr>');
                                 }
-
                                 function append3() {
                                     cont3 = cont3 + 1;
                                     //document.getElementById("cont3").innerHTML  = cont3;
                                     $( "#sombrero3" ).append('<p>' + $('#text3').val() + '</p><hr>');
                                 }
-
                                 function append4() {
                                     cont4 = cont4 + 1;
                                     //document.getElementById("cont4").innerHTML  = cont4;
                                     $( "#sombrero4" ).append('<p>' + $('#text4').val() + '</p><hr>');
                                 }
-
                                 function append5() {
                                     cont5 = cont5 + 1;
                                     //document.getElementById("cont5").innerHTML  = cont5;
                                     $( "#sombrero5" ).append('<p>' + $('#text5').val() + '</p><hr>');
                                 }
-
                                 function append6() {
                                     cont6 = cont6 + 1;
                                     //document.getElementById("cont6").innerHTML  = cont6;
                                     $( "#sombrero6" ).append('<p>' + $('#text6').val() + '</p><hr>');
                                 }
-
                                 function getElementos() {
                                     document.getElementById("total").innerHTML  = cont1 + ", " + cont2 + ", " + cont3 + ", " + cont4 + ", " + cont5 + ", " + cont6;
                                     var menor = Math.min(cont1, cont2, cont3, cont4, cont5, cont6);
                                 }
-
                                 google.charts.load('current', {'packages':['corechart']});
                                 google.charts.setOnLoadCallback(drawChart);
-
                                 function drawChart() {
                                     var data = google.visualization.arrayToDataTable([
                                       ['Sombreros', 'Núm. de elementos'],
@@ -404,22 +385,17 @@
                                       ['Verde', cont5],
                                       ['Azul', cont6]
                                     ]);
-
                                     var options = {
                                       title: 'Elementos en los sombreros',
                                       hAxis: {title: 'Sombreros',  titleTextStyle: {color: '#333'}},
                                       vAxis: {minValue: 0}
                                     };
-
                                     var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
                                     chart.draw(data, options);
                                 }
-
                                 function recom(){
                                     document.getElementById("recomendacion").innerHTML  = "Dados los resultados, te recomendamos agregar más elementos en el sombrero " + menor;
                                 }
-
-
                             </script>
 
 
@@ -467,7 +443,7 @@
         </div>
 
         <!--Load JavaScript-->
-        <!-- <script src="js/jquery.js"></script>
+        <script src="js/jquery.js"></script>
         <script src='js/jquery.fitvids.js'></script>
         <script src='js/jquery.smartmenus.min.js'></script>
         <script src='js/isotope.pkgd.js'></script>
@@ -480,6 +456,6 @@
         <script src='js/imagesloaded.pkgd.js'></script>
         <script src='js/jquery.prettyPhoto.js'></script>
         <script src='js/jquery.nicescroll.min.js'></script>
-        <script src='js/main.js'></script> -->
+        <script src='js/main.js'></script>
     </body>
 </html>
