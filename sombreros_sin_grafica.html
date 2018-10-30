@@ -9,7 +9,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
         <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
         <link rel="shortcut icon" href="images/favicon.png" />
         <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700%7CPT+Serif:400,700' rel='stylesheet' type='text/css'>
@@ -125,21 +124,24 @@
 
 
         <nav id="header-main-menu">
-    			<ul class="main-menu sm sm-clean">
-    				<li>
-    					<a href="index.html">Inicio</a>
-    				</li><br>
-    				<li>
-    					<a href="ishikawa.php">Ishikawa & Pareto</a>
-    				</li><br>
-    				<li>
-    					<a href="sombreros.html">Seis Sombreros</a>
-    				</li><br><hr>
-    				<li>
-    					<a href="about.html">Acerca de</a>
-    				</li>
-    			</ul>
-    		</nav>
+            <ul class="main-menu sm sm-clean">
+                <li>
+                    <a href="index.html">Inicio</a>
+                </li><br>
+                <li>
+                    <a href="ishikawa.php">Ishikawa</a>
+                </li><br>
+                <li>
+                    <a href="pareto.html">Pareto</a>
+                </li><br>
+                <li>
+                    <a href="sombreros.html">Seis Sombreros</a>
+                </li><br><hr>
+                <li>
+                    <a href="about.html">Acerca de</a>
+                </li>
+            </ul>
+        </nav>
 
         <div id="content" class="site-content center-relative">
 
@@ -159,7 +161,6 @@
 
             <div class="single-post-wrapper content-1170 center-relative">
                 <article>
-                    <img src="images/default_droppler_logo.png" alt="logo" style="width: 150px; height: 150px; display: block; margin-left: auto; margin-right: auto;">
                     <h1 class="entry-title">Seis Sombreros</h1>
                     <div class="post-info center-text">
                         <div class="post-date">Septiembre 24, 2018</div>
@@ -192,7 +193,6 @@
                                 <!--SOMBRERO BLANCO-->
                                 <div class="container">
                                     <p style="text-align: center;">
-                                        <span id="cont1"></span>
                                         <i class="fa fa-graduation-cap" style="font-size:48px;color:#e6e6e6;"></i>
                                     </p>
                                     <div class="sombrero" style="background: #e6e6e6;" id="sombrero1">
@@ -214,16 +214,15 @@
                                 <div class="espacio"></div>
 
                                 <!--SOMBRERO ROJO-->
-                                <div class="container">
+                                <div class="container dark">
                                     <p style="text-align: center;">
-                                        <span id="cont2"></span>
                                         <i class="fa fa-graduation-cap" style="font-size:48px;color:#b30000;"></i>
                                     </p>
-                                    <div class="sombrero dark" style="background: #b30000;" id="sombrero2">
+                                    <div class="sombrero" style="background: #b30000;" id="sombrero2">
                                         <br><p><strong>Intuición</strong></p>
                                         <hr style="border-color: #620000">
                                     </div>
-                                    <div class="container2 dark">
+                                    <div class="container2">
                                         <div class="add form-ishikawa">
                                             <form>
                                                 <input type="text" name="sombrero2" id="text2">
@@ -237,16 +236,15 @@
                                 <div class="espacio"></div>
 
                                 <!--SOMBRERO NEGRO-->
-                                <div class="container">
+                                <div class="container dark">
                                     <p style="text-align: center;">
-                                        <span id="cont3"></span>
                                         <i class="fa fa-graduation-cap" style="font-size:48px;color:#262626;"></i>
                                     </p>
-                                    <div class="sombrero dark" style="background: #262626;" id="sombrero3">
+                                    <div class="sombrero" style="background: #262626;" id="sombrero3">
                                         <br><p><strong>Voz del Juicio</strong></p>
                                         <hr style="border-color: #000000">
                                     </div>
-                                    <div class="container2 dark">
+                                    <div class="container2">
                                         <div class="add form-ishikawa">
                                             <form>
                                                 <input type="text" name="sombrero3" id="text3">
@@ -262,7 +260,6 @@
                                 <!--SOMBRERO AMARILLO-->
                                 <div class="container">
                                     <p style="text-align: center;">
-                                        <span id="cont4"></span>
                                         <i class="fa fa-graduation-cap" style="font-size:48px;color:#ffa31a;"></i>
                                     </p>
                                     <div class="sombrero" style="background: #ffa31a;" id="sombrero4">
@@ -285,7 +282,6 @@
                                 <!--SOMBRERO VERDE-->
                                 <div class="container">
                                     <p style="text-align: center;">
-                                        <span id="cont5"></span>
                                         <i class="fa fa-graduation-cap" style="font-size:48px;color:#3e8e3e;"></i>
                                     </p>
                                     <div class="sombrero" style="background: #3e8e3e;" id="sombrero5">
@@ -308,7 +304,6 @@
                                 <!--SOMBRERO AZUL-->
                                 <div class="container">
                                     <p style="text-align: center;">
-                                        <span id="cont6"></span>
                                         <i class="fa fa-graduation-cap" style="font-size:48px;color:#669999;"></i>
                                     </p>
                                     <div class="sombrero" style="background: #669999;" id="sombrero6">
@@ -329,98 +324,34 @@
 
                             </div>
 
-                            <br><hr><br>
-                            <div class="form-ishikawa">
-                                <button type="button" name="button" onclick="drawChart(); recom();" style="margin-left: 40%;">
-                                    Generar Gráfica
-                                </button>
-                                <br><br>
-                                <div id="chart_div" style="width: 100%; height: 500px;"></div>
-                                <br>
-                                <span id="recomendacion"></span>
-                            </div>
 
 
-
-                            <script type="text/javascript">
-                                var cont1 = 0;
-                                var cont2 = 0;
-                                var cont3 = 0;
-                                var cont4 = 0;
-                                var cont5 = 0;
-                                var cont6 = 0;
-
+                            <script>
                                 function append1() {
-                                    cont1 = cont1 + 1;
-                                    //document.getElementById("cont1").innerHTML  = cont1;
                                     $( "#sombrero1" ).append('<p>' + $('#text1').val() + '</p><hr>');
                                 }
 
                                 function append2() {
-                                    cont2 = cont2 + 1;
-                                    //document.getElementById("cont2").innerHTML  = cont2;
                                     $( "#sombrero2" ).append('<p>' + $('#text2').val() + '</p><hr>');
                                 }
 
                                 function append3() {
-                                    cont3 = cont3 + 1;
-                                    //document.getElementById("cont3").innerHTML  = cont3;
                                     $( "#sombrero3" ).append('<p>' + $('#text3').val() + '</p><hr>');
                                 }
 
                                 function append4() {
-                                    cont4 = cont4 + 1;
-                                    //document.getElementById("cont4").innerHTML  = cont4;
                                     $( "#sombrero4" ).append('<p>' + $('#text4').val() + '</p><hr>');
                                 }
 
                                 function append5() {
-                                    cont5 = cont5 + 1;
-                                    //document.getElementById("cont5").innerHTML  = cont5;
                                     $( "#sombrero5" ).append('<p>' + $('#text5').val() + '</p><hr>');
                                 }
 
                                 function append6() {
-                                    cont6 = cont6 + 1;
-                                    //document.getElementById("cont6").innerHTML  = cont6;
                                     $( "#sombrero6" ).append('<p>' + $('#text6').val() + '</p><hr>');
                                 }
-
-                                function getElementos() {
-                                    document.getElementById("total").innerHTML  = cont1 + ", " + cont2 + ", " + cont3 + ", " + cont4 + ", " + cont5 + ", " + cont6;
-                                    var menor = Math.min(cont1, cont2, cont3, cont4, cont5, cont6);
-                                }
-
-                                google.charts.load('current', {'packages':['corechart']});
-                                google.charts.setOnLoadCallback(drawChart);
-
-                                function drawChart() {
-                                    var data = google.visualization.arrayToDataTable([
-                                      ['Sombreros', 'Núm. de elementos'],
-                                      ['Blanco', cont1],
-                                      ['Rojo', cont2],
-                                      ['Negro', cont3],
-                                      ['Amarillo', cont4],
-                                      ['Verde', cont5],
-                                      ['Azul', cont6]
-                                    ]);
-
-                                    var options = {
-                                      title: 'Elementos en los sombreros',
-                                      hAxis: {title: 'Sombreros',  titleTextStyle: {color: '#333'}},
-                                      vAxis: {minValue: 0}
-                                    };
-
-                                    var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
-                                    chart.draw(data, options);
-                                }
-
-                                function recom(){
-                                    document.getElementById("recomendacion").innerHTML  = "Dados los resultados, te recomendamos agregar más elementos en el sombrero " + menor;
-                                }
-
-
                             </script>
+
 
 
 
@@ -467,7 +398,7 @@
         </div>
 
         <!--Load JavaScript-->
-        <!-- <script src="js/jquery.js"></script>
+        <script src="js/jquery.js"></script>
         <script src='js/jquery.fitvids.js'></script>
         <script src='js/jquery.smartmenus.min.js'></script>
         <script src='js/isotope.pkgd.js'></script>
@@ -480,6 +411,6 @@
         <script src='js/imagesloaded.pkgd.js'></script>
         <script src='js/jquery.prettyPhoto.js'></script>
         <script src='js/jquery.nicescroll.min.js'></script>
-        <script src='js/main.js'></script> -->
+        <script src='js/main.js'></script>
     </body>
 </html>
